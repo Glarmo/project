@@ -5,7 +5,7 @@ public class cameraDrag : MonoBehaviour
 {
     
     public float dragSpeed;
-    private Vector2 dragOrigin;
+    private Vector3 dragOrigin;
 
 	void Update () 
     {
@@ -15,10 +15,11 @@ public class cameraDrag : MonoBehaviour
         }
         if (Input.GetMouseButton(0))
         {
-              Vector2 pos = Camera.main.ScreenToViewportPoint(Event.mousePosition - dragOrigin);
-              Vector2 move = new Vector2(pos.x * dragSpeed, pos.y * dragSpeed);
+              Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - dragOrigin);
+              Vector3 move = new Vector3(pos.x * dragSpeed, pos.y * dragSpeed);
             
-              transform.Translate(move, Space.World);
+              transform.Translate(-move, Space.World);
+			  transform.position = new Vector3(Mathf.Clamp(transform.position.x, -10,10),Mathf.Clamp(transform.position.y, -10,10), -10);
         }
 	
 	}
