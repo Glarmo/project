@@ -3,10 +3,11 @@ using System.Collections;
 
 public class keepOnScreen : MonoBehaviour 
 {
-    public Transform target;
+    Vector3 screenPos;
 	void Update ()
     {
-         Vector3 screenPos = camera.WorldToScreenPoint(target.position);
+         screenPos = camera.WorldToScreenPoint(transform.position);
          transform.position = screenPos;
 	}
+
 }

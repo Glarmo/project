@@ -46,8 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\scripts\cameraDrag.cs" />
+     <Compile Include="Assets\scripts\clicker.cs" />
      <Compile Include="Assets\scripts\keepOnScreen.cs" />
      <Compile Include="Assets\scripts\randomInstance.cs" />
   </ItemGroup>
