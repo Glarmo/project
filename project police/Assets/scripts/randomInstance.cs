@@ -11,7 +11,7 @@ public class randomInstance : MonoBehaviour
 	void Update () 
     {
 
-                random = Random.Range(0, 100);
+                random = Random.Range(0, 1000);
                 if (random < 10 && count < 10)
                 {
                     Vector2 spawnPosition = new Vector2 (Random.Range (-spawnValues.x, spawnValues.x), Random.Range (-spawnValues.y, spawnValues.y));
