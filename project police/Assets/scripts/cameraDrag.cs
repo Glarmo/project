@@ -3,15 +3,31 @@ using System.Collections;
 
 public class cameraDrag : MonoBehaviour 
 {
-    public float dragSpeed;
-    private float OriginalDragSpeed = 1;
+    public float dragSpeed; 
+    public float mapX;
+    public float mapY;
+
     private Vector3 dragOrigin;
+
+    private float OriginalDragSpeed = 1;
     private float cameraSizeMax = 12;
     private float cameraSizeMin = 5;
-    private float size = Camera.main.orthographicSize/7;
+
+    private float minX;
+    private float maxX;
+    private float minY;
+    private float maxY;
 
 	void Update ()
     {
+        
+        float verticalExtent = Camera.main.orthographicSize;
+        float horizontalExtent = verticalExtent * Screen.width / Screen.height;
+        
+        minX = horizontalExtent - mapX/2;
+        maxX = mapX/2 - horizontalExtent;
+        minY = verticalExtent - mapY/2;
+        maxY = mapY/2 - verticalExtent;
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -23,21 +39,19 @@ public class cameraDrag : MonoBehaviour
               Vector3 move = new Vector3(pos.x * dragSpeed, pos.y * dragSpeed);
             
               transform.Translate(-move, Space.World);
-			  transform.position = new Vector3(Mathf.Clamp(transform.position.x, -10/size,10/size),Mathf.Clamp(transform.position.y, -10/size,10/size), -10);
+			  transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX, maxX),Mathf.Clamp(transform.position.y, minY, maxY), -10);
         }
         
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && Camera.main.orthographicSize >= cameraSizeMin)
         {
             Camera.main.orthographicSize--;
             dragSpeed = OriginalDragSpeed * Camera.main.orthographicSize/6;
-            size = Camera.main.orthographicSize/5;
         }
 
         if (Input.GetAxis("Mouse ScrollWheel") < 0 && Camera.main.orthographicSize <= cameraSizeMax)
         {
             Camera.main.orthographicSize++;
             dragSpeed = OriginalDragSpeed * Camera.main.orthographicSize/4;
-            size = Camera.main.orthographicSize/3;
         }
     }
 }
