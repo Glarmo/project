@@ -19,7 +19,7 @@ public class randomInstance : MonoBehaviour
                 chance = Random.Range(0, 1000);
                 if (chance < 10 && count < 10)
                 {
-                    Vector2 spawnPosition = new Vector2 (hori/200.6f, -vert/200.6f);
+                    Vector2 spawnPosition = new Vector2 (hori/200.6f, vert/200.6f);
                     Quaternion spawnRotation = Quaternion.identity;
                     Instantiate (marker, spawnPosition, spawnRotation);
                     count ++;
@@ -36,7 +36,7 @@ public class randomInstance : MonoBehaviour
                 print (testColor);
                 print (hori);
                 print (vert);
-                Vector2 spawnPosition = new Vector2 (hori/200.6f, -vert/200.6f);
+                Vector2 spawnPosition = new Vector2 (hori/200.6f, vert/200.6f);
                 Quaternion spawnRotation = Quaternion.identity;
                 Instantiate (marker, spawnPosition, spawnRotation);
     }
