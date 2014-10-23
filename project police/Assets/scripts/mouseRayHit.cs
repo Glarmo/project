@@ -21,7 +21,7 @@ public class mouseRayHit : MonoBehaviour
 				print ("hit something");
 				Vector2 location = hit.textureCoord;
 				print (location);
-				if (hit.transform.collider.tag == "Map")
+				if (hit.transform.name == "MapV2")
 				{
 					print ("hit map");
 					Vector2 mapCoords = hit.textureCoord;
