@@ -18,7 +18,10 @@ public class mouseRayHit : MonoBehaviour
 			ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out hit))
 			{
-				if (hit.transform.name == "Mapv2")
+				print ("hit something");
+				Vector2 location = hit.textureCoord;
+				print (location);
+				if (hit.transform.collider.tag == "Map")
 				{
 					print ("hit map");
 					Vector2 mapCoords = hit.textureCoord;
