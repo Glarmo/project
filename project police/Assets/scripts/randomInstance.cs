@@ -30,13 +30,13 @@ public class randomInstance : MonoBehaviour
     
     void Start ()
     {
-                int hori = (int) (Random.Range (0, mapLimits.x));
-                int vert = (int) (Random.Range (0, mapLimits.y));
+                int hori = (int) (Random.Range (-mapLimits.x, mapLimits.x));
+                int vert = (int) (Random.Range (-mapLimits.y, mapLimits.y));
                 Color testColor = roads.GetPixel (hori, vert);
                 print (testColor);
                 print (hori);
                 print (vert);
-                Vector2 spawnPosition = new Vector2 (hori/200.6f, vert/200.6f);
+                Vector2 spawnPosition = new Vector2 (hori/100f, vert/100f);
                 Quaternion spawnRotation = Quaternion.identity;
                 Instantiate (marker, spawnPosition, spawnRotation);
     }
