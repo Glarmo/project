@@ -30,12 +30,8 @@ public class randomInstance : MonoBehaviour
     
     void Start ()
     {
-                int hori = (int) (Random.Range (-mapLimits.x, mapLimits.x));
-                int vert = (int) (Random.Range (-mapLimits.y, mapLimits.y));
-                Color testColor = roads.GetPixel (hori, vert);
-                print (testColor);
-                print (hori);
-                print (vert);
+                float hori = (Random.Range (-mapLimits.x, mapLimits.x));
+                float vert = (Random.Range (-mapLimits.y, mapLimits.y));
                 Vector2 spawnPosition = new Vector2 (hori/100f, vert/100f);
                 Quaternion spawnRotation = Quaternion.identity;
                 Instantiate (marker, spawnPosition, spawnRotation);

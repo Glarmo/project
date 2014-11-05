@@ -5,7 +5,7 @@ public class cameraDrag : MonoBehaviour
 {
     public float dragSpeed; 
     public float mapX;
-    public float mapY;
+    public float mapZ;
 
     private Vector3 dragOrigin;
 
@@ -15,8 +15,8 @@ public class cameraDrag : MonoBehaviour
 
     private float minX;
     private float maxX;
-    private float minY;
-    private float maxY;
+    private float minZ;
+    private float maxZ;
 
 	void Update ()
     {
@@ -26,8 +26,8 @@ public class cameraDrag : MonoBehaviour
         
         minX = horizontalExtent - mapX/2;
         maxX = mapX/2 - horizontalExtent;
-        minY = verticalExtent - mapY/2;
-        maxY = mapY/2 - verticalExtent;
+        minZ = verticalExtent - mapZ/2;
+        maxZ = mapZ/2 - verticalExtent;
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -39,7 +39,7 @@ public class cameraDrag : MonoBehaviour
               Vector3 move = new Vector3(pos.x * dragSpeed, pos.y * dragSpeed);
             
               transform.Translate(-move, Space.World);
-			  transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX, maxX),Mathf.Clamp(transform.position.y, minY, maxY), -10);
+			  transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX, maxX),Mathf.Clamp(transform.position.z, minZ, maxZ), -10);
         }
         
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && Camera.main.orthographicSize >= cameraSizeMin)
