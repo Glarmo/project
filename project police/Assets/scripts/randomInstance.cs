@@ -4,37 +4,21 @@ using System.Collections;
 public class randomInstance : MonoBehaviour
 {
     public GameObject marker;
-    public Vector2 mapLimits;
+    public Vector3 mapLimits;
     private int chance;
     public static int count;
-    public Texture2D roads;
     
 
-	/*void Update ()
+	void Update ()
     {
-                int hori = (int) (Random.Range (0, mapLimits.x));
-                int vert = (int) (Random.Range (0, mapLimits.y));
-                Color testColor = roads.GetPixel (hori, vert);
-                print (testColor);
                 chance = Random.Range(0, 1000);
                 if (chance < 10 && count < 10)
                 {
-                    Vector2 spawnPosition = new Vector2 (hori/200.6f, vert/200.6f);
+					Vector3 spawnPosition = new Vector3 (Random.Range (-mapLimits.x, mapLimits.x), 0, Random.Range (-mapLimits.z, mapLimits.z));
                     Quaternion spawnRotation = Quaternion.identity;
                     Instantiate (marker, spawnPosition, spawnRotation);
                     count ++;
-                }
-
-
-	}*/
-    
-    void Start ()
-    {
-                float hori = (Random.Range (-mapLimits.x, mapLimits.x));
-                float vert = (Random.Range (-mapLimits.y, mapLimits.y));
-                Vector2 spawnPosition = new Vector2 (hori/100f, vert/100f);
-                Quaternion spawnRotation = Quaternion.identity;
-                Instantiate (marker, spawnPosition, spawnRotation);
-    }
+        		}
+	}
     
 }
