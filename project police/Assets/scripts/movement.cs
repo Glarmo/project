@@ -8,7 +8,7 @@ public class movement : MonoBehaviour
 	
 	void Start () 
 	{
-		navComp = transform.GetComponent (NavMeshAgent);
+		navComp = GetComponent <NavMeshAgent>();
 	}
 
 	void Update () 
