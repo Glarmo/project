@@ -13,6 +13,7 @@ public class movement : MonoBehaviour
 
 	void Update () 
 	{
+		//target = GameObject.Find(transform;
 		if (target) 
 		{
 			navComp.SetDestination(target.position);

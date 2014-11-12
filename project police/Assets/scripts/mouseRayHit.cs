@@ -5,10 +5,6 @@ public class mouseRayHit : MonoBehaviour
 {
 	private Ray ray;
 	private RaycastHit hit;
-	void Start () 
-    {
-	
-	}
 	
 
 	void Update () 
