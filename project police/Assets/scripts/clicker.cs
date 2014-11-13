@@ -4,6 +4,13 @@ using System.Collections;
 public class clicker : MonoBehaviour 
 {
 	public GameObject policeCar;
+	public static Transform targetPosition;
+
+
+	void Start ()
+	{
+		 targetPosition.position = transform.position;
+	}
 
     void OnMouseOver ()
     {

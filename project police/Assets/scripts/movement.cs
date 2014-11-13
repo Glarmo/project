@@ -4,6 +4,7 @@ using System.Collections;
 public class movement : MonoBehaviour 
 {
 	public Transform target;
+	public clicker targetScript;
 	private NavMeshAgent navComp;
 	
 	void Start () 
@@ -13,7 +14,7 @@ public class movement : MonoBehaviour
 
 	void Update () 
 	{
-		//target = GameObject.Find(transform;
+		target = clicker.targetPosition;
 		if (target) 
 		{
 			navComp.SetDestination(target.position);
