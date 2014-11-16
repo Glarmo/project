@@ -3,21 +3,18 @@ using System.Collections;
 
 public class movement : MonoBehaviour 
 {
-	public Transform target;
-	public clicker targetScript;
+	public Transform destination;
+	public float test;
 	private NavMeshAgent navComp;
 	
 	void Start () 
 	{
 		navComp = GetComponent <NavMeshAgent>();
+		print (test);
 	}
 
 	void Update () 
 	{
-		target = clicker.targetPosition;
-		if (target) 
-		{
-			navComp.SetDestination(target.position);
-		}
+		navComp.SetDestination(destination.position);
 	}
 }
