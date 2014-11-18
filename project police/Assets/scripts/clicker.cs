@@ -13,43 +13,29 @@ public class clicker : MonoBehaviour
 	
 	void Start ()
 	{
-		target = transform;		// sets target targets transform
+		target = transform;									// sets variable to the transform of object
 		script = policeCar.GetComponent<movement> ();		//Gives me access to movement script
 	}
-
-	void Update ()
-	{
-		if (Input.GetMouseButtonDown (0)) 
-		{
-			ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			if (Physics.Raycast(ray, out hit))
-			{
-				if (hit.transform.name == "target(Clone)")
-				{
-					//instantiateAgent();
-					//print ("hit crime");
-				}
-			}
-		}
-	}
 	
-	void instantiateAgent()
-	{
-		Vector3 spawnPosition = new Vector3 (0,0,0);
-		Quaternion spawnRotation = Quaternion.identity;
-		Instantiate (policeCar, spawnPosition, spawnRotation);
-		script.destination = target;
-		script.test = 5;
-	}
+	
 
 	void OnMouseOver ()
 	{
 		if (Input.GetMouseButtonDown (0)) 
 		{
+			script.destination = target;					//change destination variable in movement script to target
 			Vector3 spawnPosition = new Vector3 (0,0,0);
 			Quaternion spawnRotation = Quaternion.identity;
 			Instantiate (policeCar, spawnPosition, spawnRotation);
-			script.destination = target;
+		}
+	}
+
+	void OnTriggerEnter(Collider other) 
+	{
+		if (other.tag == "building")
+		{
+			Destroy(gameObject);
+			randomInstance.count--;
 		}
 	}
 }
