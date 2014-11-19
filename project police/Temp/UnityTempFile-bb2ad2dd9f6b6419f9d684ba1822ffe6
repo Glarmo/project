@@ -45,5 +45,6 @@
 'Assets/Scripts/mouseRayHit.cs'
 'Assets/Scripts/movement.cs'
 'Assets/Scripts/randomInstance.cs'
+'Assets/storeCars.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Xml.Linq.dll'
