@@ -21,12 +21,13 @@ public class clicker : MonoBehaviour
 
 	void OnMouseOver ()
 	{
-		if (Input.GetMouseButtonDown (0)) 
+		if (Input.GetMouseButtonDown (0) && randomInstance.unitCount > 0) 
 		{
 			script.destination = target;					//change destination variable in movement script to target
 			Vector3 spawnPosition = new Vector3 (0,0,0);
 			Quaternion spawnRotation = Quaternion.identity;
 			Instantiate (policeCar, spawnPosition, spawnRotation);
+			randomInstance.unitCount--;
 		}
 	}
 
@@ -35,7 +36,7 @@ public class clicker : MonoBehaviour
 		if (other.tag == "building")
 		{
 			Destroy(gameObject);
-			randomInstance.count--;
+			randomInstance.crimeCount--;
 		}
 	}
 }

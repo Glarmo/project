@@ -15,21 +15,29 @@ public class movement : MonoBehaviour
 
 	void Update () 
 	{
+		if (destination == null)
+		{
+			destination = GameObject.FindGameObjectWithTag("ReturnPoint").GetComponent<Transform>();
+			complete = true;
+		}
+
 		navComp.SetDestination(destination.position);
 	}
+
 
 	void OnTriggerEnter(Collider other) 
 	{
 		if (other.tag == "crime")
 		{
 			Destroy(other.gameObject);
-			randomInstance.count--;
+			randomInstance.crimeCount--;
 			destination = GameObject.FindGameObjectWithTag("ReturnPoint").GetComponent<Transform>();
 			complete = true;
 		}
 
 		if (other.tag == "ReturnPoint" && complete == true) 
 		{
+			randomInstance.unitCount++;
 			Destroy(gameObject);
 		}
 	}
