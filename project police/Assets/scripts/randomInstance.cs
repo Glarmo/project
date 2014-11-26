@@ -5,6 +5,7 @@ public class randomInstance : MonoBehaviour
 {
     public GameObject marker;
     public Vector3 mapLimits;
+	public static int unitSend = 0;
 	public static int unitCount = 100;
     public static int crimeCount;
 
