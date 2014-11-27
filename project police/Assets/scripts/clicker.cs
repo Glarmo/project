@@ -22,19 +22,15 @@ public class clicker : MonoBehaviour
 	{
 		if (guiCreator.doneClicked == 1)
 		{
-			print ("I have detected the done");
-			script.destination = target;					//change destination variable in movement script to target
 			Vector3 spawnPosition = new Vector3 (0,0,0);
 			Quaternion spawnRotation = Quaternion.identity;
 			for (int i = 0; i < randomInstance.unitSend; i++)
 			{
-				print ("I am in the loop");
 				Instantiate (policeCar, spawnPosition, spawnRotation);
 				randomInstance.unitCount--;
 			}
 			guiCreator.doneClicked = 0;
 			randomInstance.unitSend = 0;
-			print ("I am out of here");
 		}
 	}
 	
@@ -43,19 +39,8 @@ public class clicker : MonoBehaviour
 	{
 		if (Input.GetMouseButtonDown (0)) 
 		{
-			/*script.destination = target;					//change destination variable in movement script to target
-			Vector3 spawnPosition = new Vector3 (0,0,0);
-			Quaternion spawnRotation = Quaternion.identity;
-			if (guiCreator.doneClicked == 1)
-			{
-				for (int i = 0; i < randomInstance.unitSend; i++)
-				{
-					Instantiate (policeCar, spawnPosition, spawnRotation);
-					randomInstance.unitCount--;
-				}
-			}*/
-			crimeClicked = 1;
-
+			crimeClicked = 1;						//change destination variable in movement script to target
+			script.destination = target;
 		}
 	}
 

@@ -44,6 +44,7 @@
 'Assets/Scripts/guiCreator.cs'
 'Assets/Scripts/mouseRayHit.cs'
 'Assets/Scripts/movement.cs'
+'Assets/Scripts/multipcrimepalyer.game.cs'
 'Assets/Scripts/randomInstance.cs'
 'Assets/Scripts/storeCars.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
