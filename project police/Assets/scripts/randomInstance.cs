@@ -8,6 +8,7 @@ public class randomInstance : MonoBehaviour
 	public static int unitSend = 0;
 	public static int unitCount = 100;
     public static int crimeCount;
+	public static int money = 1000;
 
 	private int chance;
     

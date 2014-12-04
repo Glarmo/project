@@ -26,10 +26,10 @@ public class clicker : MonoBehaviour
 			Quaternion spawnRotation = Quaternion.identity;
 			for (int i = 0; i < randomInstance.unitSend; i++)
 			{
-				Instantiate (policeCar, spawnPosition, spawnRotation);
+				Instantiate (policeCar, spawnPosition, spawnRotation);		//spawns car
 				randomInstance.unitCount--;
 			}
-			guiCreator.doneClicked = 0;
+			guiCreator.doneClicked = 0;						//removes gui element
 			randomInstance.unitSend = 0;
 		}
 	}
@@ -48,7 +48,7 @@ public class clicker : MonoBehaviour
 	{
 		if (other.tag == "building")
 		{
-			Destroy(gameObject);
+			Destroy(gameObject);					//prevents spawning in buildings
 			randomInstance.crimeCount--;
 		}
 	}

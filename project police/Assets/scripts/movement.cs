@@ -21,7 +21,7 @@ public class movement : MonoBehaviour
 			complete = true;
 		}
 
-		navComp.SetDestination(destination.position);
+		navComp.SetDestination(destination.position);		//Sets destination 
 	}
 
 
@@ -30,9 +30,11 @@ public class movement : MonoBehaviour
 		if (other.tag == "crime")
 		{
 			Destroy(other.gameObject);
-			randomInstance.crimeCount--;
+			randomInstance.crimeCount--;	
 			destination = GameObject.FindGameObjectWithTag("ReturnPoint").GetComponent<Transform>();
-			complete = true;
+			complete = true;			//Tells the GM that it has completed the task
+			randomInstance.money+=100;
+			print (randomInstance.money);
 		}
 
 		if (other.tag == "ReturnPoint" && complete == true) 
