@@ -1,11 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/guiCreator.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/guiCreator.cs">
     <Files>
-      <File FileName="Assets/scripts/movement.cs" Line="30" Column="18" />
-      <File FileName="Assets/scripts/clicker.cs" Line="29" Column="73" />
-      <File FileName="Assets/scripts/randomInstance.cs" Line="7" Column="30" />
-      <File FileName="Assets/Scripts/guiCreator.cs" Line="23" Column="3" />
+      <File FileName="Assets/_Scripts/randomInstance.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Scripts/movement.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Scripts/guiCreator.cs" Line="26" Column="169" />
+      <File FileName="Assets/_Scripts/clicker.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
