@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: f6c11f2b287284d8fa0c57283ebed5fc
+guid: 0152b15fd6d21b34ba5f02b3610f025e
 TextureImporter:
   fileIDToRecycleName:
-    21300000: minus
+    21300000: pause_hover
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -22,10 +22,10 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -3
-  maxTextureSize: 4096
+  textureFormat: -1
+  maxTextureSize: 1024
   textureSettings:
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -1
     wrapMode: -1

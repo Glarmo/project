@@ -6,16 +6,18 @@ public class clicker : MonoBehaviour
 	public GameObject policeCar;
 	public Transform target;
 	public static int crimeClicked = 0;
-
-	private Ray ray;
-	private RaycastHit hit;
+	public static int successChanceGUI;
+	
+	private int successChance;
 
 	movement script;
 	
 	void Start ()
 	{
+		successChance = Random.Range (0, 100);				// sets the chance of success for that particular crime
 		target = transform;									// sets variable to the transform of object
 		script = policeCar.GetComponent<movement> ();		//Gives me access to movement script
+		StartCoroutine (crimeTimer ());
 	}
 
 	void Update ()
@@ -32,13 +34,22 @@ public class clicker : MonoBehaviour
 			guiCreator.doneClicked = 0;						//removes gui element
 			randomInstance.unitSend = 0;
 		}
+
 	}
 	
+	IEnumerator crimeTimer ()
+	{
+		yield return new WaitForSeconds (15);
+		Destroy (gameObject);
+		randomInstance.crimeCount--;
+	}
 
 	void OnMouseOver ()
 	{
 		if (Input.GetMouseButtonDown (0)) 
 		{
+			successChanceGUI = successChance;
+			randomInstance.unitSend = 0;
 			crimeClicked = 1;						//change destination variable in movement script to target
 			script.destination = target;
 		}
