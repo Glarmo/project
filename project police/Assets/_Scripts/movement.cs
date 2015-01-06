@@ -6,11 +6,13 @@ public class movement : MonoBehaviour
 	public Transform destination;
 
 	private int successChance;
+	private int crimeTime;
 	private bool complete = false;
 	private NavMeshAgent navComp;
 	
 	void Start () 
 	{
+		crimeTime = Random.Range (2, 15);
 		successChance = clicker.successChanceGUI;
 		navComp = GetComponent <NavMeshAgent>();
 	}
@@ -34,7 +36,7 @@ public class movement : MonoBehaviour
 			int chance = Random.Range (0, 100);
 			if (chance < successChance)
 			{
-				yield return new WaitForSeconds (2);
+				yield return new WaitForSeconds (crimeTime);
 				Destroy(other.gameObject);
 				randomInstance.crimeCount--;	
 				destination = GameObject.FindGameObjectWithTag("ReturnPoint").GetComponent<Transform>();

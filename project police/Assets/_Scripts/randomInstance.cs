@@ -4,6 +4,7 @@ using System.Collections;
 public class randomInstance : MonoBehaviour
 {
     public GameObject marker;
+	public GameObject garage;
     public Vector3 mapLimits;
 
 	public static int unitSend = 0;
@@ -16,7 +17,8 @@ public class randomInstance : MonoBehaviour
 	public static int year = 2000;
 	public static int timeHour = 23;
 	public static float timeMin = 50;
-	
+
+
 	private GameObject building;
 	private int chance;
     
@@ -27,6 +29,7 @@ public class randomInstance : MonoBehaviour
 		int y = Random.Range (1, 23);
 		building = GameObject.Find ("City/Line " + x + "/Building " + y);
 		building.renderer.material.color = Color.blue;
+		garage.transform.Translate(new Vector3 (building.transform.position.x + 0.75f, 0, building.transform.position.z));
 	}
 
 	void Update ()
