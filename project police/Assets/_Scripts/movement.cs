@@ -12,7 +12,7 @@ public class movement : MonoBehaviour
 	
 	void Start () 
 	{
-		crimeTime = Random.Range (2, 15);
+		crimeTime = Random.Range (2, 20);
 		successChance = clicker.successChanceGUI;
 		navComp = GetComponent <NavMeshAgent>();
 	}

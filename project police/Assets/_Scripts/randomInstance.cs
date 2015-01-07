@@ -58,7 +58,7 @@ public class randomInstance : MonoBehaviour
 		}
 
         chance = Random.Range(0, 1000);
-        if (chance < 10 && crimeCount < 10)
+        if (chance < 10 && crimeCount < 10 && guiCreator.pauseClicked == false)
         {
 			Vector3 spawnPosition = new Vector3 (Random.Range (-mapLimits.x, mapLimits.x), 0, Random.Range (-mapLimits.z, mapLimits.z));
    		    Quaternion spawnRotation = Quaternion.identity;

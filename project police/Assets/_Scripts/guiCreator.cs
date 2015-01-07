@@ -8,6 +8,7 @@ public class guiCreator : MonoBehaviour
 	public int xTestFinish;
 	public int yTestFinish;
 	public static int doneClicked = 0; 
+	public static bool pauseClicked = false;
 
     public Texture background;
 	public Texture menuBackground;
@@ -29,7 +30,6 @@ public class guiCreator : MonoBehaviour
 
 	private bool storageClicked = false;
 	private bool unitMenuClicked = false;
-	private bool pauseClicked = false;
 	private bool playClicked = true;
 	private bool fastClicked = false;
 	private int unitBuy = 0;
@@ -105,7 +105,7 @@ public class guiCreator : MonoBehaviour
 		{
 			pauseClicked = false;
 			playClicked = false;
-			Time.timeScale = 10;
+			Time.timeScale = 100;
 		}
 
 		//Draws storage symbol
@@ -163,7 +163,7 @@ public class guiCreator : MonoBehaviour
 			GUI.contentColor = Color.white;
 			GUI.DrawTexture (new Rect( Screen.width/2 - 100, Screen.height/2 - 30, 200, 100), menuBackground, ScaleMode.StretchToFill, true, 0);
 			GUI.Label (new Rect (Screen.width/2 - 20, Screen.height/2, 40, 30), "" + randomInstance.unitSend);		//Number of units to be sent
-			GUI.Label (new Rect (Screen.width/2 - 20, Screen.height/2 - 25, 40, 30), "" + clicker.successChanceGUI + "%");	// chance of success
+			GUI.Label (new Rect (Screen.width/2 - 20, Screen.height/2 - 25, 50, 30), "" + clicker.successChanceGUI + "%");	// chance of success
 
 			GUI.skin = minusSkin;
 			if (GUI.Button (new Rect (Screen.width/2 - 90, Screen.height/2, 30, 30), "") && randomInstance.unitSend > 0)		//Take away
@@ -177,6 +177,10 @@ public class guiCreator : MonoBehaviour
 			{
 				randomInstance.unitSend++;
 				clicker.successChanceGUI += 5;
+				if (clicker.successChanceGUI > 100)
+				{
+					clicker.successChanceGUI = 100;
+				}
 			}
 
 			GUI.skin = doneSkin;
