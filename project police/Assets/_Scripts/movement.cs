@@ -5,6 +5,7 @@ public class movement : MonoBehaviour
 {
 	public Transform destination;
 
+	private int spawnTime = 60;
 	private int successChance;
 	private int crimeTime;
 	private bool complete = false;
@@ -15,6 +16,7 @@ public class movement : MonoBehaviour
 		crimeTime = Random.Range (2, 20);
 		successChance = clicker.successChanceGUI;
 		navComp = GetComponent <NavMeshAgent>();
+		StartCoroutine (policeTimer());
 	}
 
 	void Update () 
@@ -56,5 +58,12 @@ public class movement : MonoBehaviour
 			randomInstance.unitCount++;
 			Destroy(gameObject);
 		}
+	}
+
+	IEnumerator policeTimer ()
+	{
+		yield return new WaitForSeconds (spawnTime);
+		Destroy(gameObject);
+		randomInstance.unitCount++;
 	}
 }

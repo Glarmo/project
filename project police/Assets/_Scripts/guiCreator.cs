@@ -58,6 +58,7 @@ public class guiCreator : MonoBehaviour
 			GUI.contentColor = Color.white;
 			GUI.DrawTexture (new Rect (125, 100, 200, 200), menuBackground, ScaleMode.StretchToFill, true, 0);
 			GUI.Label (new Rect (140, 115, 100, 20), "WAGE: " + randomInstance.unitWage);
+			GUI.Label (new Rect (140, 150, 150, 20), "SATISFACTION: " + randomInstance.unitSatisfaction);
 			GUI.skin = minusSkin;
 			if (GUI.Button (new Rect(250, 115, 20, 20), ""))
 			{

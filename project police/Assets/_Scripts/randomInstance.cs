@@ -16,6 +16,7 @@ public class randomInstance : MonoBehaviour
 	public static int month = 12;
 	public static int year = 2000;
 	public static int timeHour = 23;
+	public static int unitSatisfaction = 500;
 	public static float timeMin = 50;
 
 
@@ -25,6 +26,8 @@ public class randomInstance : MonoBehaviour
 	void Start ()
 	{
 		Screen.SetResolution (1200, 800, false);
+
+		//Sets a random building as the police station
 		int x = Random.Range (1, 23);
 		int y = Random.Range (1, 23);
 		building = GameObject.Find ("City/Line " + x + "/Building " + y);
@@ -43,7 +46,8 @@ public class randomInstance : MonoBehaviour
 		if (timeHour > 23)
 		{
 			timeHour = 0;
-			money = money - unitWage * unitCount;
+			money = money - unitWage * unitCount;	//Deducts wages from money
+			unitSatisfaction = unitSatisfaction - 100 + unitWage/2;
 			day++;
 		}
 		if (day > 30)

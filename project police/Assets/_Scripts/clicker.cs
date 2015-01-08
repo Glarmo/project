@@ -10,7 +10,7 @@ public class clicker : MonoBehaviour
 	public static int successChanceGUI;
 	
 	private int successChance;
-	private int timeLeft = 15;
+	private int timeLeft = 30;
 
 	movement script;
 	
@@ -51,7 +51,6 @@ public class clicker : MonoBehaviour
 	{
 		if (Input.GetMouseButtonDown (0)) 
 		{
-			timeLeft = 15;
 			successChanceGUI = successChance;
 			randomInstance.unitSend = 0;
 			crimeClicked = 1;						
