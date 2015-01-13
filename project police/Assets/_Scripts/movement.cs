@@ -8,7 +8,10 @@ public class movement : MonoBehaviour
 	private int spawnTime = 60;
 	private int successChance;
 	private int crimeTime;
+	private Ray carRay;
+	private RaycastHit carHit;
 	private bool complete = false;
+	private bool selected = false;
 	private NavMeshAgent navComp;
 	
 	void Start () 
@@ -25,6 +28,30 @@ public class movement : MonoBehaviour
 		{
 			destination = GameObject.FindGameObjectWithTag("ReturnPoint").GetComponent<Transform>();
 			complete = true;
+		}
+
+		if (selected == true && Input.GetMouseButtonDown (0))
+		{
+			carRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+			if (Physics.Raycast(carRay, out carHit))
+			{
+				if (carHit.transform.name == "Map Collider")
+				{
+					destination = carHit.transform;
+					print (carHit);
+					if (!navComp.pathPending)
+					{
+						if (navComp.remainingDistance <= navComp.stoppingDistance)
+						{
+							if (!navComp.hasPath || navComp.velocity.sqrMagnitude == 0.5f)
+							{
+								print("here");
+								// Done
+							}
+						}
+					}
+				}
+			}
 		}
 
 		navComp.SetDestination(destination.position);		//Sets destination 
@@ -65,5 +92,14 @@ public class movement : MonoBehaviour
 		yield return new WaitForSeconds (spawnTime);
 		Destroy(gameObject);
 		randomInstance.unitCount++;
+	}
+
+	void OnMouseOver ()
+	{
+		if (Input.GetMouseButtonDown (0))
+		{
+			gameObject.renderer.material.color = Color.green;
+			selected = true;
+		}
 	}
 }
