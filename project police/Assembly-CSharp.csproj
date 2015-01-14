@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\_Scripts\cameraDragV2.cs" />
-     <Compile Include="Assets\_Scripts\cameraDragV3.cs" />
      <Compile Include="Assets\_Scripts\cameraDragV4.cs" />
      <Compile Include="Assets\_Scripts\clicker.cs" />
      <Compile Include="Assets\_Scripts\guiCreator.cs" />
