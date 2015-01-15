@@ -54,7 +54,7 @@ public class cameraDragV4 : MonoBehaviour
 		
 		if (mousePosX < scrollDistance) 
 		{ 
-			if (xLeftScaling < 0)
+			if (xLeftScaling > 0)
 			{
 				xLeftScaling = -70;
 			}
@@ -81,7 +81,7 @@ public class cameraDragV4 : MonoBehaviour
 		
 		if (mousePosY >= Screen.height - scrollDistance) 
 		{ 
-			if (yTopScaling < 0)
+			if (yTopScaling > 0)
 			{
 				yTopScaling = -70;
 			}

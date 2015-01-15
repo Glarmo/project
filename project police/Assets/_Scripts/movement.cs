@@ -32,7 +32,7 @@ public class movement : MonoBehaviour
 
 		if (selected == true && Input.GetMouseButtonDown (0))
 		{
-			carRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+			/*carRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(carRay, out carHit))
 			{
 				if (carHit.transform.name == "Map Collider")
@@ -51,7 +51,7 @@ public class movement : MonoBehaviour
 						}
 					}
 				}
-			}
+			}*/
 		}
 
 		navComp.SetDestination(destination.position);		//Sets destination 

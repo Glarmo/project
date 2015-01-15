@@ -1,11 +1,14 @@
+/*! A test class
+ */
+
 using UnityEngine;
 using System.Collections;
 
 public class randomInstance : MonoBehaviour
 {
-    public GameObject marker;
-	public GameObject garage;
-    public Vector3 mapLimits;
+	public GameObject marker;	/**< target for the police cars */ 
+	public GameObject garage;	/**< return point for the cars */
+    public Vector3 mapLimits;	/**< limits for the camera */
 
 	public static int unitSend = 0;
 	public static int unitCount = 10;
@@ -23,6 +26,7 @@ public class randomInstance : MonoBehaviour
 	private GameObject building;
 	private int chance;
     
+	/**< Our starting point */
 	void Start ()
 	{
 		Screen.SetResolution (1200, 800, false);
