@@ -8,7 +8,8 @@ public class clicker : MonoBehaviour
 	public GameObject garage;
 	public static int crimeClicked = 0;
 	public static int successChanceGUI;
-	
+
+	private bool clickedOn = false;
 	private int successChance;
 	private int timeLeft = 30;
 
@@ -43,8 +44,18 @@ public class clicker : MonoBehaviour
 	IEnumerator crimeTimer ()
 	{
 		yield return new WaitForSeconds (timeLeft);
-		Destroy (gameObject);
-		randomInstance.crimeCount--;
+		if (clickedOn == false)
+		{
+			Destroy (gameObject);
+			randomInstance.crimeCount--;
+		}
+		else
+		{
+			print ("clicked");
+			yield return new WaitForSeconds (timeLeft);
+			Destroy (gameObject);
+			randomInstance.crimeCount--;
+		}
 	}
 
 	void OnMouseOver ()
@@ -53,6 +64,7 @@ public class clicker : MonoBehaviour
 		{
 			successChanceGUI = successChance;
 			randomInstance.unitSend = 0;
+			clickedOn = true;
 			crimeClicked = 1;						
 			script.destination = target;		//change destination variable in movement script to target
 		}
