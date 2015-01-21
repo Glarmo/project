@@ -53,6 +53,7 @@
      <Compile Include="Assets\_Scripts\mainMenuGUI.cs" />
      <Compile Include="Assets\_Scripts\mouseRayHit.cs" />
      <Compile Include="Assets\_Scripts\movement.cs" />
+     <Compile Include="Assets\_Scripts\movingGUI.cs" />
      <Compile Include="Assets\_Scripts\randomInstance.cs" />
      <Compile Include="Assets\_Scripts\storeCars.cs" />
   </ItemGroup>

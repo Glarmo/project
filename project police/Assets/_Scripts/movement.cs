@@ -4,6 +4,7 @@ using System.Collections;
 public class movement : MonoBehaviour 
 {
 	public Transform destination;
+	public static bool failedCrime = false;
 
 	private int spawnTime = 60;
 	private int successChance;
@@ -72,9 +73,10 @@ public class movement : MonoBehaviour
 				complete = true;			//Tells the GM that it has completed the task
 				randomInstance.money+=100;
 			}
-			if (chance > successChance)
+			if (chance > successChance)		//Failed the crime
 			{
-				yield return new WaitForSeconds (2);
+				yield return new WaitForSeconds (crimeTime);
+				failedCrime = true;
 				destination = GameObject.FindGameObjectWithTag("ReturnPoint").GetComponent<Transform>();
 				complete = true;
 			}

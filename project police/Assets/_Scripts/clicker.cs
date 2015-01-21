@@ -44,6 +44,7 @@ public class clicker : MonoBehaviour
 	IEnumerator crimeTimer ()
 	{
 		yield return new WaitForSeconds (timeLeft);
+		//Checks if the crime has been clicked on, if it has it adds some more time to the crime
 		if (clickedOn == false)
 		{
 			Destroy (gameObject);
@@ -51,7 +52,6 @@ public class clicker : MonoBehaviour
 		}
 		else
 		{
-			print ("clicked");
 			yield return new WaitForSeconds (timeLeft);
 			Destroy (gameObject);
 			randomInstance.crimeCount--;

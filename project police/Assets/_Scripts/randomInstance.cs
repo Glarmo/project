@@ -20,6 +20,7 @@ public class randomInstance : MonoBehaviour
 	public static int year = 2000;
 	public static int timeHour = 23;
 	public static int unitSatisfaction = 500;
+	public static int guiX;
 	public static float timeMin = 50;
 
 
