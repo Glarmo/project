@@ -34,17 +34,10 @@ public class guiCreator : MonoBehaviour
 	private bool fastClicked = false;
 	private int unitBuy = 0;
 
-	void Start ()
-	{
-
-	}
 
 
     void OnGUI ()
     {
-		movingGUI crime = new movingGUI ("hello");
-		crime.Move ();
-
 		//Draws black bars
 		GUI.skin = toolBarSkin;
 		GUI.DrawTexture (new Rect(0, 0, Screen.width, Screen.height/10), background, ScaleMode.StretchToFill, true, 0);         //Top bar

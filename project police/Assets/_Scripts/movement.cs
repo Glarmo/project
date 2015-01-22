@@ -4,6 +4,9 @@ using System.Collections;
 public class movement : MonoBehaviour 
 {
 	public Transform destination;
+	public GameObject notificationGUI;
+
+	public static bool solvedCrime = false;
 	public static bool failedCrime = false;
 
 	private int spawnTime = 60;
@@ -28,6 +31,7 @@ public class movement : MonoBehaviour
 		if (destination == null || complete == true)
 		{
 			destination = GameObject.FindGameObjectWithTag("ReturnPoint").GetComponent<Transform>();
+			notificationGUI = GameObject.FindGameObjectWithTag("movingGUI");
 			complete = true;
 		}
 
@@ -63,20 +67,25 @@ public class movement : MonoBehaviour
 	{
 		if (other.tag == "crime")
 		{
+			Vector3 notificationSpawn = new Vector3 (0, 0);
+			Quaternion notificationRotation = Quaternion.identity;
 			int chance = Random.Range (0, 100);
-			if (chance < successChance)
+			if (chance < successChance)		//Success
 			{
 				yield return new WaitForSeconds (crimeTime);
 				Destroy(other.gameObject);
 				randomInstance.crimeCount--;	
 				destination = GameObject.FindGameObjectWithTag("ReturnPoint").GetComponent<Transform>();
 				complete = true;			//Tells the GM that it has completed the task
+				Instantiate (notificationGUI, notificationSpawn, notificationRotation);
+				solvedCrime = true;
 				randomInstance.money+=100;
 			}
 			if (chance > successChance)		//Failed the crime
 			{
 				yield return new WaitForSeconds (crimeTime);
 				failedCrime = true;
+				Instantiate (notificationGUI, notificationSpawn, notificationRotation);
 				destination = GameObject.FindGameObjectWithTag("ReturnPoint").GetComponent<Transform>();
 				complete = true;
 			}
