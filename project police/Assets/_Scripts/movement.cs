@@ -8,6 +8,7 @@ public class movement : MonoBehaviour
 
 	public static bool solvedCrime = false;
 	public static bool failedCrime = false;
+	public static int notificationCheck = 1;
 
 	private int spawnTime = 60;
 	private int successChance;
@@ -69,10 +70,11 @@ public class movement : MonoBehaviour
 		{
 			Vector3 notificationSpawn = new Vector3 (0, 0);
 			Quaternion notificationRotation = Quaternion.identity;
-			int chance = Random.Range (0, 100);
+			int chance = Random.Range (0, 100);				
+			yield return new WaitForSeconds (crimeTime);
+			notificationCheck++;
 			if (chance < successChance)		//Success
 			{
-				yield return new WaitForSeconds (crimeTime);
 				Destroy(other.gameObject);
 				randomInstance.crimeCount--;	
 				destination = GameObject.FindGameObjectWithTag("ReturnPoint").GetComponent<Transform>();
@@ -83,8 +85,7 @@ public class movement : MonoBehaviour
 			}
 			if (chance > successChance)		//Failed the crime
 			{
-				yield return new WaitForSeconds (crimeTime);
-				failedCrime = true;
+				Destroy(other.gameObject);
 				Instantiate (notificationGUI, notificationSpawn, notificationRotation);
 				destination = GameObject.FindGameObjectWithTag("ReturnPoint").GetComponent<Transform>();
 				complete = true;

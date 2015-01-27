@@ -5,34 +5,45 @@ public class movingGUI : MonoBehaviour
 {	
 	private int guiX;
 	private int guiY;
+	private int guiYOG;
+	private int notificationKeep;
 	private string textNew;
 
 	void Start ()
 	{
 		guiX = Screen.width;
-		guiY = 100;
+		guiYOG = 100;
+		guiY = guiY;
+		notificationKeep = movement.notificationCheck;
 		if (movement.solvedCrime == true)
 		{
 			textNew = "The city is a little bit safer";
-			movement.solvedCrime = false;
 		}
 		else
 		{
 			textNew = "They got away";
-			movement.failedCrime = false;
 		}
 	}
 
 	void Update ()
 	{
-		if (movement.solvedCrime == true || movement.failedCrime == true)
+		if (notificationKeep < movement.notificationCheck)
 		{
-			print ("level 1");
-			while ( guiY > guiY + 55)
+			print("adding");
+			guiY += 4;
+			if (guiY < guiYOG + 55)
+			{
+				print ("limit");
+				guiY = guiY + 55;
+			}
+			/*print ("level 1");
+			print (guiY);
+			print (guiY + 55);
+			while ( guiY < guiY + 55)
 			{
 				print ("Level 2");
-				guiY--;
-			}
+				guiY++;
+			}*/
 		}
 	}
 	void OnGUI ()
@@ -43,7 +54,7 @@ public class movingGUI : MonoBehaviour
 			guiX = 1000;
 		}
 
-		if (GUI.Button (new Rect (guiX, 100, 170, 50), "" + textNew))
+		if (GUI.Button (new Rect (guiX, guiY, 170, 50), "" + textNew))
 		{
 			Destroy(gameObject);
 		}
