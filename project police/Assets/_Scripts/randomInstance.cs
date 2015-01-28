@@ -10,6 +10,8 @@ public class randomInstance : MonoBehaviour
 	public GameObject garage;	/**< return point for the cars */
     public Vector3 mapLimits;	/**< limits for the camera */
 
+	public static bool destroyedGUICheck = false;
+	public static int destroyedGUIHeight;
 	public static int unitSend = 0;
 	public static int unitCount = 10;
     public static int crimeCount;
@@ -20,7 +22,6 @@ public class randomInstance : MonoBehaviour
 	public static int year = 2000;
 	public static int timeHour = 23;
 	public static int unitSatisfaction = 500;
-	public static int guiX;
 	public static float timeMin = 50;
 
 

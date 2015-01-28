@@ -8,7 +8,6 @@ public class guiCreator : MonoBehaviour
 	public int xTestFinish;
 	public int yTestFinish;
 	public static int doneClicked = 0; 
-	public static bool pauseClicked = false;
 
     public Texture background;
 	public Texture menuBackground;
@@ -30,6 +29,7 @@ public class guiCreator : MonoBehaviour
 
 	private bool storageClicked = false;
 	private bool unitMenuClicked = false;
+	public static bool pauseClicked = false;
 	private bool playClicked = true;
 	private bool fastClicked = false;
 	private int unitBuy = 0;

@@ -13,7 +13,7 @@ public class movingGUI : MonoBehaviour
 	{
 		guiX = Screen.width;
 		guiYOG = 100;
-		guiY = guiY;
+		guiY = guiYOG;
 		notificationKeep = movement.notificationCheck;
 		if (movement.solvedCrime == true)
 		{
@@ -27,23 +27,27 @@ public class movingGUI : MonoBehaviour
 
 	void Update ()
 	{
+		print (notificationKeep);
+		print (movement.notificationCheck);
 		if (notificationKeep < movement.notificationCheck)
 		{
-			print("adding");
 			guiY += 4;
-			if (guiY < guiYOG + 55)
+			if (guiY > guiYOG + 55)
 			{
-				print ("limit");
-				guiY = guiY + 55;
+				guiYOG = guiYOG + 55;
+				notificationKeep = movement.notificationCheck;
 			}
-			/*print ("level 1");
-			print (guiY);
-			print (guiY + 55);
-			while ( guiY < guiY + 55)
+		}
+		if (randomInstance.destroyedGUICheck == true)
+		{
+			if (guiY > randomInstance.destroyedGUIHeight)
 			{
-				print ("Level 2");
-				guiY++;
-			}*/
+				guiY -= 4;
+				if (guiY > guiYOG + 55)
+				{
+					guiYOG = guiYOG + 55;
+				}
+			}
 		}
 	}
 	void OnGUI ()
@@ -56,6 +60,8 @@ public class movingGUI : MonoBehaviour
 
 		if (GUI.Button (new Rect (guiX, guiY, 170, 50), "" + textNew))
 		{
+			randomInstance.destroyedGUICheck = true;
+			randomInstance.destroyedGUIHeight = guiY;
 			Destroy(gameObject);
 		}
 	}
