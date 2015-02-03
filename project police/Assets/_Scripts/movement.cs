@@ -72,9 +72,9 @@ public class movement : MonoBehaviour
 			Quaternion notificationRotation = Quaternion.identity;
 			int chance = Random.Range (0, 100);				
 			yield return new WaitForSeconds (crimeTime);
-			notificationCheck++;
 			if (chance < successChance)		//Success
 			{
+				notificationCheck++;
 				Destroy(other.gameObject);
 				randomInstance.crimeCount--;	
 				destination = GameObject.FindGameObjectWithTag("ReturnPoint").GetComponent<Transform>();
@@ -85,6 +85,7 @@ public class movement : MonoBehaviour
 			}
 			if (chance > successChance)		//Failed the crime
 			{
+				notificationCheck++;
 				Destroy(other.gameObject);
 				Instantiate (notificationGUI, notificationSpawn, notificationRotation);
 				destination = GameObject.FindGameObjectWithTag("ReturnPoint").GetComponent<Transform>();
